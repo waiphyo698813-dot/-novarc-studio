@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | NOVARC STUDIO</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f3f5f8;color:#17243a}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:240px;background:#101e35;color:white;padding:28px 18px;flex-shrink:0}
+.brand{font-size:21px;font-weight:bold;padding:0 12px 35px}
+.brand span{color:#a7b4c5}
+.menu-title{font-size:10px;color:#8291a5;letter-spacing:2px;padding:10px 12px}
+.sidebar a{display:block;color:#dce3ec;text-decoration:none;padding:13px 12px;border-radius:6px;font-size:14px;margin-bottom:5px}
+.sidebar a:hover,.sidebar a.active{background:#263d5d;color:white}
+.main{flex:1;min-width:0}
+.topbar{height:75px;background:white;padding:0 30px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8ebf0}
+.topbar h2{font-size:19px}
+.admin-label{font-size:12px;color:#718096}
+.content{padding:30px;max-width:1250px;margin:auto}
+.welcome{margin-bottom:25px}
+.welcome h1{font-size:27px;margin-bottom:8px}
+.welcome p{color:#718096;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:30px}
+.stat{background:white;padding:24px;border-radius:9px;border:1px solid #e8ebf0}
+.stat p{font-size:12px;color:#718096;margin-bottom:13px}
+.stat strong{font-size:30px}
+.stat small{display:block;color:#8291a5;font-size:11px;margin-top:8px}
+.panel{background:white;padding:25px;border-radius:9px;border:1px solid #e8ebf0;margin-bottom:25px}
+.panel h2{font-size:18px;margin-bottom:8px}
+.panel-desc{font-size:13px;color:#8291a5;margin-bottom:20px;line-height:1.6}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+label{display:block;font-size:13px;font-weight:bold;margin:15px 0 8px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #dce2e9;border-radius:5px;font-size:14px;background:white}
+textarea{height:80px;resize:vertical}
+.btn{display:inline-block;border:0;background:#101e35;color:white;padding:12px 18px;border-radius:5px;font-size:12px;font-weight:bold;cursor:pointer;margin-top:15px}
+.btn:hover{background:#263d5d}
+.btn-danger{background:#a63e3e;margin:0}
+.btn-danger:hover{background:#842d2d}
+.project-item,.inquiry-item{border-top:1px solid #edf0f4;padding:15px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.item-info strong{font-size:14px;display:block;margin-bottom:6px}
+.item-info span{font-size:12px;color:#8291a5}
+.quick-links{display:flex;flex-wrap:wrap;gap:10px}
+.quick-links a{background:#edf1f6;color:#17243a;text-decoration:none;padding:12px 16px;border-radius:5px;font-size:12px}
+.empty{font-size:13px;color:#8291a5;padding:15px 0}
+.notice{background:#fff7e7;border:1px solid #f1dfb8;padding:15px;border-radius:7px;font-size:12px;color:#795b23;line-height:1.7;margin-bottom:25px}
+footer{text-align:center;padding:25px;color:#8291a5;font-size:11px}
+@media(max-width:800px){
+.layout{display:block}
+.sidebar{width:100%;padding:15px}
+.brand{padding:5px 8px 15px}
+.sidebar nav{display:flex;flex-wrap:wrap;gap:5px}
+.sidebar a{padding:10px;font-size:12px}
+.menu-title{display:none}
+.topbar{height:60px;padding:0 18px}
+.content{padding:20px 15px}
+.stats{grid-template-columns:1fr 1fr}
+.grid{grid-template-columns:1fr}
+}
+@media(max-width:430px){
+.stats{grid-template-columns:1fr}
+.welcome h1{font-size:23px}
+.panel{padding:18px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+
+<aside class="sidebar">
+<div class="brand">NOVARC<span>.</span></div>
+
+<p class="menu-title">ADMINISTRATION</p>
+<nav>
+<a href="#overview" class="active">Dashboard</a>
+<a href="#projects">Projects</a>
+<a href="#inquiries">Inquiries</a>
+<a href="#links">Website Pages</a>
+<a href="index.html">← View Website</a>
+</nav>
+</aside>
+
+<div class="main">
+
+<header class="topbar">
+<h2>Admin Dashboard</h2>
+<span class="admin-label">OWNER PANEL · LOCAL DEMO</span>
+</header>
+
+<main class="content">
+
+<section class="welcome" id="overview">
+<h1>Welcome to NOVARC STUDIO</h1>
+<p>Manage your design portfolio and local project records.</p>
+</section>
+
+<div class="notice">
+<strong>Important:</strong> This is a local demonstration dashboard.
+Data is stored only in this browser using LocalStorage.
+It is not connected to a live website database and has no admin login security.
+</div>
+
+<section class="stats">
+<div class="stat">
+<p>TOTAL PROJECTS</p>
+<strong id="projectCount">0</strong>
+<small>Projects saved on this device</small>
+</div>
+
+<div class="stat">
+<p>CUSTOMER INQUIRIES</p>
+<strong id="inquiryCount">0</strong>
+<small>Inquiries manually recorded</small>
+</div>
+
+<div class="stat">
+<p>WEBSITE STATUS</p>
+<strong style="font-size:19px">DEMO</strong>
+<small>Local preview version</small>
+</div>
+</section>
+
+<section class="panel" id="projects">
+<h2>Project Management</h2>
+<p class="panel-desc">Add project records to your local dashboard.</p>
+
+<div class="grid">
+<div>
+<label for="projectName">Project Name</label>
+<input id="projectName" placeholder="e.g. Modern Residence">
+</div>
+
+<div>
+<label for="projectType">Project Category</label>
+<select id="projectType">
+<option value="Residential">Residential</option>
+<option value="Commercial">Commercial</option>
+<option value="Interior">Interior Design</option>
+<option value="Visualization">3D Visualization</option>
+</select>
+</div>
+</div>
+
+<button class="btn" id="addProject">+ ADD PROJECT</button>
+
+<h3 style="font-size:15px;margin-top:30px">Saved Projects</h3>
+<div id="projectList">
+<p class="empty">No projects added yet.</p>
+</div>
+</section>
+
+<section class="panel" id="inquiries">
+<h2>Customer Inquiry Records</h2>
+<p class="panel-desc">
+Manually record customer inquiries received by phone or WhatsApp.
+</p>
+
+<label for="customerName">Customer Name</label>
+<input id="customerName" placeholder="Customer name">
+
+<label for="customerPhone">Phone Number</label>
+<input id="customerPhone" type="tel" placeholder="Phone number">
+
+<label for="customerRequest">Project Request</label>
+<textarea id="customerRequest" placeholder="Customer requirements"></textarea>
+
+<button class="btn" id="addInquiry">+ SAVE INQUIRY</button>
+
+<h3 style="font-size:15px;margin-top:30px">Customer Records</h3>
+<div id="inquiryList">
+<p class="empty">No inquiries recorded yet.</p>
+</div>
+</section>
+
+<section class="panel" id="links">
+<h2>Website Pages</h2>
+<p class="panel-desc">Quick access to your NOVARC STUDIO pages.</p>
+
+<div class="quick-links">
+<a href="index.html">Home Page ↗</a>
+<a href="gallery.html">Project Gallery ↗</a>
+<a href="services.html">Services ↗</a>
+<a href="contact.html">Contact ↗</a>
+</div>
+</section>
+
+<section class="panel">
+<h2>Local Data Management</h2>
+<p class="panel-desc">
+Download a backup of your dashboard records or clear the local demo data.
+</p>
+<button class="btn" id="exportData">DOWNLOAD BACKUP</button>
+<button class="btn btn-danger" id="clearData">CLEAR ALL DATA</button>
+</section>
+
+</main>
+
+<footer>
+NOVARC STUDIO · ADMIN DASHBOARD V1 · 2026
+</footer>
+
+</div>
+</div>
+
+<script>
+const projectKey = "novarc_admin_projects";
+const inquiryKey = "novarc_admin_inquiries";
+
+function getData(key){
+    try{
+        return JSON.parse(localStorage.getItem(key)) || [];
+    }catch(error){
+        return [];
+    }
+}
+
+function saveData(key,data){
+    localStorage.setItem(key,JSON.stringify(data));
+}
+
+function makeText(tag,text,className){
+    const el = document.createElement(tag);
+    el.textContent = text;
+    if(className) el.className = className;
+    return el;
+}
+
+function renderProjects(){
+    const projects = getData(projectKey);
+    const list = document.getElementById("projectList");
+    list.replaceChildren();
+
+    document.getElementById("projectCount").textContent = projects.length;
+
+    if(projects.length === 0){
+        list.append(makeText("p","No projects added yet.","empty"));
+        return;
+    }
+
+    projects.forEach((project,index)=>{
+        const item = makeText("div","","project-item");
+        const info = makeText("div","","item-info");
+
+        info.append(makeText("strong",project.name));
+        info.append(makeText("span",project.type));
+
+        const remove = makeText("button","DELETE","btn btn-danger");
+        remove.type = "button";
+        remove.addEventListener("click",()=>{
+            if(confirm("Delete this project record?")){
+                const updated = getData(projectKey);
+                updated.splice(index,1);
+                saveData(projectKey,updated);
+                renderProjects();
+            }
+        });
+
+        item.append(info,remove);
+        list.append(item);
+    });
+}
+
+function renderInquiries(){
+    const inquiries = getData(inquiryKey);
+    const list = document.getElementById("inquiryList");
+    list.replaceChildren();
+
+    document.getElementById("inquiryCount").textContent = inquiries.length;
+
+    if(inquiries.length === 0){
+        list.append(makeText("p","No inquiries recorded yet.","empty"));
+        return;
+    }
+
+    inquiries.forEach((inquiry,index)=>{
+        const item = makeText("div","","inquiry-item");
+        const info = makeText("div","","item-info");
+
+        info.append(makeText("strong",inquiry.name));
+        info.append(makeText("span",inquiry.phone + " · " + inquiry.request));
+
+        const remove = makeText("button","DELETE","btn btn-danger");
+        remove.type = "button";
+        remove.addEventListener("click",()=>{
+            if(confirm("Delete this inquiry record?")){
+                const updated = getData(inquiryKey);
+                updated.splice(index,1);
+                saveData(inquiryKey,updated);
+                renderInquiries();
+            }
+        });
+
+        item.append(info,remove);
+        list.append(item);
+    });
+}
+
+document.getElementById("addProject").addEventListener("click",()=>{
+    const name = document.getElementById("projectName").value.trim();
+    const type = document.getElementById("projectType").value;
+
+    if(!name){
+        alert("Please enter a project name.");
+        return;
+    }
+
+    const projects = getData(projectKey);
+    projects.push({name,type});
+    saveData(projectKey,projects);
+
+    document.getElementById("projectName").value = "";
+    renderProjects();
+    alert("Project record saved.");
+});
+
+document.getElementById("addInquiry").addEventListener("click",()=>{
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("customerPhone").value.trim();
+    const request = document.getElementById("customerRequest").value.trim();
+
+    if(!name || !phone || !request){
+        alert("Please complete all inquiry fields.");
+        return;
+    }
+
+    const inquiries = getData(inquiryKey);
+    inquiries.push({name,phone,request});
+    saveData(inquiryKey,inquiries);
+
+    document.getElementById("customerName").value = "";
+    document.getElementById("customerPhone").value = "";
+    document.getElementById("customerRequest").value = "";
+
+    renderInquiries();
+    alert("Inquiry record saved.");
+});
+
+document.getElementById("exportData").addEventListener("click",()=>{
+    const backup = {
+        projects:getData(projectKey),
+        inquiries:getData(inquiryKey),
+        exportedAt:new Date().toISOString()
+    };
+
+    const file = new Blob(
+        [JSON.stringify(backup,null,2)],
+        {type:"application/json"}
+    );
+
+    const url = URL.createObjectURL(file);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "novarc-dashboard-backup.json";
+    link.click();
+    URL.revokeObjectURL(url);
+});
+
+document.getElementById("clearData").addEventListener("click",()=>{
+    if(confirm("Are you sure you want to clear all dashboard records?")){
+        localStorage.removeItem(projectKey);
+        localStorage.removeItem(inquiryKey);
+        renderProjects();
+        renderInquiries();
+        alert("Local dashboard records cleared.");
+    }
+});
+
+renderProjects();
+renderInquiries();
+</script>
+
+</body>
+</html>
