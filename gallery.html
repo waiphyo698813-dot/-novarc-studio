@@ -4,117 +4,766 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Gallery | NOVARC STUDIO</title>
+
+<title>Project Portfolio | NOVARC STUDIO</title>
+
+<meta name="description" content="Explore NOVARC STUDIO's architectural concepts, residential designs, commercial buildings and interior design portfolio.">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f5f7fa;color:#101e35}
-header{background:#101e35;padding:22px 7%;display:flex;justify-content:space-between;align-items:center}
-.logo{color:white;text-decoration:none;font-size:23px;font-weight:bold}
-.logo span{color:#a7b4c5}
-nav a{color:white;text-decoration:none;font-size:13px}
-.hero{text-align:center;padding:75px 20px 50px}
-.eyebrow{font-size:12px;letter-spacing:3px;color:#718096;margin-bottom:15px}
-h1{font-size:40px;margin-bottom:15px}
-.subtitle{color:#718096;line-height:1.7}
-.gallery{max-width:1150px;margin:auto;padding:20px 25px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 8px 25px #101e3510}
-.card img{width:100%;height:230px;object-fit:cover;display:block}
-.content{padding:23px}
-.category{font-size:11px;letter-spacing:2px;color:#8191a5;margin-bottom:10px}
-h2{font-size:20px;margin-bottom:10px}
-.content p{font-size:14px;color:#718096;line-height:1.6;margin-bottom:20px}
-.btn{display:inline-block;background:#101e35;color:white;text-decoration:none;padding:12px 18px;font-size:12px;border-radius:4px}
-.btn:hover{background:#263d5d}
-footer{text-align:center;background:#101e35;color:#a7b4c5;padding:30px;font-size:12px;line-height:2}
-@media(max-width:800px){.gallery{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:550px){.gallery{grid-template-columns:1fr}h1{font-size:31px}.card img{height:240px}}
+:root {
+  --navy: #101e35;
+  --white: #ffffff;
+  --steel: #a7b4c5;
+  --muted: #718096;
+  --bg: #f5f7fa;
+  --accent: #c3a46b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* HEADER */
+
+header {
+  background: var(--navy);
+  min-height: 76px;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.back-link {
+  color: white;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  padding: 85px 20px 55px;
+  background:
+    linear-gradient(135deg, #ffffff, #edf1f6);
+}
+
+.eyebrow {
+  color: #9b8153;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 6vw, 55px);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 570px;
+  margin: auto;
+  font-size: 15px;
+}
+
+/* PORTFOLIO CONTROLS */
+
+.portfolio {
+  max-width: 1250px;
+  margin: auto;
+  padding: 55px 25px 90px;
+}
+
+.portfolio-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.portfolio-top h2 {
+  font-size: 25px;
+}
+
+.project-count {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.search-box {
+  width: min(100%, 310px);
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 17px;
+  border: 1px solid #dce2ea;
+  border-radius: 5px;
+  background: white;
+  color: var(--navy);
+  outline: none;
+  font-size: 14px;
+}
+
+.search-box input:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px #101e3510;
+}
+
+/* FILTER BUTTONS */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.filter-btn {
+  border: 1px solid #dce2ea;
+  background: white;
+  color: var(--navy);
+  padding: 11px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+
+/* PROJECT GRID */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 27px;
+}
+
+.card {
+  background: white;
+  overflow: hidden;
+  border-radius: 7px;
+  box-shadow: 0 8px 28px #101e3510;
+  transition: transform .3s, box-shadow .3s;
+  min-width: 0;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px #101e3520;
+}
+
+.image-wrap {
+  position: relative;
+  overflow: hidden;
+  background: #e6ebf1;
+}
+
+.image-wrap img {
+  width: 100%;
+  height: 245px;
+  display: block;
+  object-fit: cover;
+  transition: transform .5s;
+}
+
+.card:hover .image-wrap img {
+  transform: scale(1.05);
+}
+
+.image-label {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  background: rgba(16,30,53,.88);
+  color: white;
+  padding: 7px 12px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.card-content {
+  padding: 23px;
+}
+
+.category {
+  color: #9b8153;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  min-height: 48px;
+  margin-bottom: 20px;
+}
+
+.view-link {
+  display: inline-block;
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 5px;
+}
+
+.view-link:hover {
+  color: #9b8153;
+}
+
+/* EMPTY SEARCH */
+
+.no-results {
+  display: none;
+  text-align: center;
+  padding: 65px 20px;
+  color: var(--muted);
+  grid-column: 1 / -1;
+}
+
+.no-results h3 {
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+/* DISCLAIMER */
+
+.disclaimer {
+  margin-top: 35px;
+  padding: 17px 20px;
+  background: #edf1f6;
+  border-left: 3px solid var(--accent);
+  color: #66758a;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* CTA */
+
+.cta {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 65px 20px;
+}
+
+.cta h2 {
+  font-size: clamp(25px, 4vw, 36px);
+  margin-bottom: 12px;
+}
+
+.cta p {
+  color: var(--steel);
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.cta a {
+  display: inline-block;
+  background: white;
+  color: var(--navy);
+  padding: 14px 25px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 3px;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  background: #0b172a;
+  color: var(--steel);
+  padding: 30px 15px;
+  font-size: 11px;
+  line-height: 2;
+}
+
+footer strong {
+  color: white;
+  letter-spacing: 2px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 600px) {
+  header {
+    padding: 17px 5%;
+  }
+
+  .hero {
+    padding: 65px 20px 45px;
+  }
+
+  .portfolio {
+    padding: 40px 17px 65px;
+  }
+
+  .portfolio-top {
+    align-items: stretch;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .filters {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 10px 13px;
+    font-size: 10px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .image-wrap img {
+    height: 250px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<a href="index.html" class="logo">NOVARC<span>.</span></a>
-<nav><a href="index.html">← BACK TO HOME</a></nav>
+  <a href="index.html" class="logo">
+    NOVARC<span>.</span>
+  </a>
+
+  <a href="index.html" class="back-link">
+    ← BACK TO HOME
+  </a>
 </header>
 
 <section class="hero">
-<p class="eyebrow">NOVARC STUDIO · OUR WORK</p>
-<h1>Project Gallery</h1>
-<p class="subtitle">
-Explore architectural concepts, modern buildings<br>
-and interior design inspirations.
-</p>
+  <p class="eyebrow">NOVARC STUDIO · OUR WORK</p>
+
+  <h1>Architecture<br>Portfolio.</h1>
+
+  <p>
+    Explore our selected architectural concepts,
+    contemporary buildings and interior design inspirations.
+  </p>
 </section>
 
-<section class="gallery">
+<main class="portfolio">
 
-<article class="card">
-<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900" alt="Modern Residence">
-<div class="content">
-<p class="category">RESIDENTIAL DESIGN</p>
-<h2>Modern Residence</h2>
-<p>A contemporary residential design concept.</p>
-<a class="btn" href="project.html?project=modern-residence">VIEW DETAILS →</a>
-</div>
-</article>
+  <div class="portfolio-top">
+    <div>
+      <h2>Selected Projects</h2>
+      <p class="project-count" id="projectCount">
+        Showing 6 projects
+      </p>
+    </div>
 
-<article class="card">
-<img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900" alt="Commercial Building">
-<div class="content">
-<p class="category">COMMERCIAL DESIGN</p>
-<h2>Commercial Building</h2>
-<p>A modern commercial building concept.</p>
-<a class="btn" href="project.html?project=commercial-building">VIEW DETAILS →</a>
-</div>
-</article>
+    <div class="search-box">
+      <input
+        type="search"
+        id="projectSearch"
+        placeholder="Search projects..."
+        aria-label="Search projects"
+      >
+    </div>
+  </div>
 
-<article class="card">
-<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900" alt="Interior Design">
-<div class="content">
-<p class="category">INTERIOR DESIGN</p>
-<h2>Interior Design</h2>
-<p>Elegant and functional interior concept.</p>
-<a class="btn" href="project.html?project=interior-design">VIEW DETAILS →</a>
-</div>
-</article>
+  <div class="filters" aria-label="Project categories">
 
-<article class="card">
-<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900" alt="Luxury Living Space">
-<div class="content">
-<p class="category">LIVING SPACE</p>
-<h2>Luxury Living Space</h2>
-<p>A refined living space design inspiration.</p>
-<a class="btn" href="project.html?project=modern-residence">VIEW DETAILS →</a>
-</div>
-</article>
+    <button class="filter-btn active"
+      data-filter="all" aria-pressed="true">
+      ALL PROJECTS
+    </button>
 
-<article class="card">
-<img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900" alt="Modern Interior">
-<div class="content">
-<p class="category">INTERIOR CONCEPT</p>
-<h2>Modern Interior</h2>
-<p>A clean and comfortable interior concept.</p>
-<a class="btn" href="project.html?project=interior-design">VIEW DETAILS →</a>
-</div>
-</article>
+    <button class="filter-btn"
+      data-filter="residential" aria-pressed="false">
+      RESIDENTIAL
+    </button>
 
-<article class="card">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900" alt="Contemporary House">
-<div class="content">
-<p class="category">ARCHITECTURAL CONCEPT</p>
-<h2>Contemporary House</h2>
-<p>A modern architectural design inspiration.</p>
-<a class="btn" href="project.html?project=modern-residence">VIEW DETAILS →</a>
-</div>
-</article>
+    <button class="filter-btn"
+      data-filter="commercial" aria-pressed="false">
+      COMMERCIAL
+    </button>
 
+    <button class="filter-btn"
+      data-filter="interior" aria-pressed="false">
+      INTERIOR
+    </button>
+
+  </div>
+
+  <section class="gallery" id="projectGallery">
+
+    <!-- PROJECT 01 -->
+
+    <article class="card"
+      data-category="residential"
+      data-search="modern residence residential architecture house">
+
+      <div class="image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900"
+          alt="Modern residence architectural concept"
+          loading="lazy"
+        >
+        <span class="image-label">01 · RESIDENTIAL</span>
+      </div>
+
+      <div class="card-content">
+        <p class="category">RESIDENTIAL DESIGN</p>
+        <h3>Modern Residence</h3>
+
+        <p class="card-description">
+          A contemporary residential concept exploring
+          clean forms and modern living.
+        </p>
+
+        <a class="view-link"
+          href="project.html?project=modern-residence">
+          VIEW PROJECT →
+        </a>
+      </div>
+    </article>
+
+    <!-- PROJECT 02 -->
+
+    <article class="card"
+      data-category="commercial"
+      data-search="commercial building office architecture">
+
+      <div class="image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900"
+          alt="Modern commercial building concept"
+          loading="lazy"
+        >
+        <span class="image-label">02 · COMMERCIAL</span>
+      </div>
+
+      <div class="card-content">
+        <p class="category">COMMERCIAL DESIGN</p>
+        <h3>Commercial Building</h3>
+
+        <p class="card-description">
+          A modern commercial concept combining
+          functionality and architectural character.
+        </p>
+
+        <a class="view-link"
+          href="project.html?project=commercial-building">
+          VIEW PROJECT →
+        </a>
+      </div>
+    </article>
+
+    <!-- PROJECT 03 -->
+
+    <article class="card"
+      data-category="interior"
+      data-search="interior design luxury living space">
+
+      <div class="image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900"
+          alt="Modern interior design concept"
+          loading="lazy"
+        >
+        <span class="image-label">03 · INTERIOR</span>
+      </div>
+
+      <div class="card-content">
+        <p class="category">INTERIOR DESIGN</p>
+        <h3>Interior Design</h3>
+
+        <p class="card-description">
+          Elegant interior concepts focused on
+          comfort, materials and functionality.
+        </p>
+
+        <a class="view-link"
+          href="project.html?project=interior-design">
+          VIEW PROJECT →
+        </a>
+      </div>
+    </article>
+
+    <!-- PROJECT 04 -->
+
+    <article class="card"
+      data-category="residential"
+      data-search="luxury living space residential interior">
+
+      <div class="image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900"
+          alt="Luxury living space concept"
+          loading="lazy"
+        >
+        <span class="image-label">04 · LIVING SPACE</span>
+      </div>
+
+      <div class="card-content">
+        <p class="category">RESIDENTIAL CONCEPT</p>
+        <h3>Luxury Living Space</h3>
+
+        <p class="card-description">
+          A refined living space inspiration
+          with a contemporary design direction.
+        </p>
+
+        <a class="view-link"
+          href="project.html?project=modern-residence">
+          VIEW PROJECT →
+        </a>
+      </div>
+    </article>
+
+    <!-- PROJECT 05 -->
+
+    <article class="card"
+      data-category="interior"
+      data-search="modern interior furniture space planning">
+
+      <div class="image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900"
+          alt="Modern interior concept"
+          loading="lazy"
+        >
+        <span class="image-label">05 · INTERIOR</span>
+      </div>
+
+      <div class="card-content">
+        <p class="category">INTERIOR CONCEPT</p>
+        <h3>Modern Interior</h3>
+
+        <p class="card-description">
+          A clean and comfortable interior
+          concept for contemporary spaces.
+        </p>
+
+        <a class="view-link"
+          href="project.html?project=interior-design">
+          VIEW PROJECT →
+        </a>
+      </div>
+    </article>
+
+    <!-- PROJECT 06 -->
+
+    <article class="card"
+      data-category="residential"
+      data-search="contemporary house architecture residential">
+
+      <div class="image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900"
+          alt="Contemporary house concept"
+          loading="lazy"
+        >
+        <span class="image-label">06 · ARCHITECTURE</span>
+      </div>
+
+      <div class="card-content">
+        <p class="category">ARCHITECTURAL CONCEPT</p>
+        <h3>Contemporary House</h3>
+
+        <p class="card-description">
+          A contemporary home inspiration
+          exploring modern architectural forms.
+        </p>
+
+        <a class="view-link"
+          href="project.html?project=modern-residence">
+          VIEW PROJECT →
+        </a>
+      </div>
+    </article>
+
+    <div class="no-results" id="noResults">
+      <h3>No Projects Found</h3>
+      <p>Try another project name or category.</p>
+    </div>
+
+  </section>
+
+  <div class="disclaimer">
+    <strong>Portfolio Note:</strong>
+    Images are illustrative reference imagery.
+    Displayed concepts should not be interpreted
+    as approved construction drawings or completed projects.
+  </div>
+
+</main>
+
+<section class="cta">
+  <h2>Have a Project in Mind?</h2>
+
+  <p>
+    Let's discuss your architectural vision
+    and explore the possibilities.
+  </p>
+
+  <a href="contact.html">
+    START A PROJECT INQUIRY →
+  </a>
 </section>
 
 <footer>
-<strong>NOVARC STUDIO</strong><br>
-DESIGNING SPACES. BUILDING VISIONS.<br>
-© 2026 NOVARC STUDIO. All Rights Reserved.
+  <strong>NOVARC STUDIO</strong><br>
+  DESIGNING SPACES. BUILDING VISIONS.<br>
+  © 2026 NOVARC STUDIO. All Rights Reserved.
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  const cards = Array.from(
+    document.querySelectorAll(".card")
+  );
+
+  const buttons = document.querySelectorAll(".filter-btn");
+  const search = document.getElementById("projectSearch");
+  const count = document.getElementById("projectCount");
+  const noResults = document.getElementById("noResults");
+
+  let activeFilter = "all";
+
+  function filterProjects() {
+
+    const keyword = search.value
+      .trim()
+      .toLowerCase();
+
+    let visibleCount = 0;
+
+    cards.forEach(function(card) {
+
+      const category = card.dataset.category;
+      const searchable = (
+        card.dataset.search + " " +
+        card.textContent
+      ).toLowerCase();
+
+      const matchesCategory =
+        activeFilter === "all" ||
+        category === activeFilter;
+
+      const matchesSearch =
+        searchable.includes(keyword);
+
+      const visible =
+        matchesCategory && matchesSearch;
+
+      card.hidden = !visible;
+
+      if (visible) {
+        visibleCount++;
+      }
+
+    });
+
+    count.textContent =
+      "Showing " + visibleCount + " of " +
+      cards.length + " projects";
+
+    noResults.style.display =
+      visibleCount === 0 ? "block" : "none";
+  }
+
+  buttons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+      buttons.forEach(function(item) {
+        item.classList.remove("active");
+        item.setAttribute("aria-pressed", "false");
+      });
+
+      button.classList.add("active");
+      button.setAttribute("aria-pressed", "true");
+
+      activeFilter = button.dataset.filter;
+
+      filterProjects();
+
+    });
+
+  });
+
+  search.addEventListener("input", filterProjects);
+
+  filterProjects();
+
+});
+</script>
 
 </body>
 </html>
