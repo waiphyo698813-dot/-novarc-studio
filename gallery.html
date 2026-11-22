@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Gallery | NOVARC STUDIO</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f7fa;color:#101e35}
+header{background:#101e35;padding:22px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{color:white;text-decoration:none;font-size:23px;font-weight:bold}
+.logo span{color:#a7b4c5}
+nav a{color:white;text-decoration:none;font-size:13px}
+.hero{text-align:center;padding:75px 20px 50px}
+.eyebrow{font-size:12px;letter-spacing:3px;color:#718096;margin-bottom:15px}
+h1{font-size:40px;margin-bottom:15px}
+.subtitle{color:#718096;line-height:1.7}
+.gallery{max-width:1150px;margin:auto;padding:20px 25px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 8px 25px #101e3510}
+.card img{width:100%;height:230px;object-fit:cover;display:block}
+.content{padding:23px}
+.category{font-size:11px;letter-spacing:2px;color:#8191a5;margin-bottom:10px}
+h2{font-size:20px;margin-bottom:10px}
+.content p{font-size:14px;color:#718096;line-height:1.6;margin-bottom:20px}
+.btn{display:inline-block;background:#101e35;color:white;text-decoration:none;padding:12px 18px;font-size:12px;border-radius:4px}
+.btn:hover{background:#263d5d}
+footer{text-align:center;background:#101e35;color:#a7b4c5;padding:30px;font-size:12px;line-height:2}
+@media(max-width:800px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.gallery{grid-template-columns:1fr}h1{font-size:31px}.card img{height:240px}}
+</style>
+</head>
+<body>
+
+<header>
+<a href="index.html" class="logo">NOVARC<span>.</span></a>
+<nav><a href="index.html">← BACK TO HOME</a></nav>
+</header>
+
+<section class="hero">
+<p class="eyebrow">NOVARC STUDIO · OUR WORK</p>
+<h1>Project Gallery</h1>
+<p class="subtitle">
+Explore architectural concepts, modern buildings<br>
+and interior design inspirations.
+</p>
+</section>
+
+<section class="gallery">
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900" alt="Modern Residence">
+<div class="content">
+<p class="category">RESIDENTIAL DESIGN</p>
+<h2>Modern Residence</h2>
+<p>A contemporary residential design concept.</p>
+<a class="btn" href="project.html?project=modern-residence">VIEW DETAILS →</a>
+</div>
+</article>
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900" alt="Commercial Building">
+<div class="content">
+<p class="category">COMMERCIAL DESIGN</p>
+<h2>Commercial Building</h2>
+<p>A modern commercial building concept.</p>
+<a class="btn" href="project.html?project=commercial-building">VIEW DETAILS →</a>
+</div>
+</article>
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900" alt="Interior Design">
+<div class="content">
+<p class="category">INTERIOR DESIGN</p>
+<h2>Interior Design</h2>
+<p>Elegant and functional interior concept.</p>
+<a class="btn" href="project.html?project=interior-design">VIEW DETAILS →</a>
+</div>
+</article>
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900" alt="Luxury Living Space">
+<div class="content">
+<p class="category">LIVING SPACE</p>
+<h2>Luxury Living Space</h2>
+<p>A refined living space design inspiration.</p>
+<a class="btn" href="project.html?project=modern-residence">VIEW DETAILS →</a>
+</div>
+</article>
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900" alt="Modern Interior">
+<div class="content">
+<p class="category">INTERIOR CONCEPT</p>
+<h2>Modern Interior</h2>
+<p>A clean and comfortable interior concept.</p>
+<a class="btn" href="project.html?project=interior-design">VIEW DETAILS →</a>
+</div>
+</article>
+
+<article class="card">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900" alt="Contemporary House">
+<div class="content">
+<p class="category">ARCHITECTURAL CONCEPT</p>
+<h2>Contemporary House</h2>
+<p>A modern architectural design inspiration.</p>
+<a class="btn" href="project.html?project=modern-residence">VIEW DETAILS →</a>
+</div>
+</article>
+
+</section>
+
+<footer>
+<strong>NOVARC STUDIO</strong><br>
+DESIGNING SPACES. BUILDING VISIONS.<br>
+© 2026 NOVARC STUDIO. All Rights Reserved.
+</footer>
+
+</body>
+</html>
