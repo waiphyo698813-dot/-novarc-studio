@@ -1,0 +1,427 @@
+
+/* ==================================
+   NOVARC STUDIO
+   LUXURY PROJECT DETAIL PAGE
+================================== */
+
+:root {
+    --navy: #101E35;
+    --navy-dark: #091426;
+    --white: #FFFFFF;
+    --steel: #A7B4C5;
+    --light: #F4F6F9;
+    --text: #263247;
+    --muted: #718096;
+    --border: #E2E8F0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HEADER */
+
+.project-header {
+    min-height: 78px;
+    padding: 15px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    color: var(--navy);
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.brand span {
+    color: #8CA2BE;
+}
+
+.project-header nav {
+    display: flex;
+    gap: 28px;
+}
+
+.project-header nav a {
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.project-header nav a:hover {
+    color: #8196B0;
+}
+
+/* HERO */
+
+.project-hero {
+    height: 590px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--navy);
+}
+
+.project-hero > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(8, 20, 38, 0.92),
+        rgba(8, 20, 38, 0.25)
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px 8%;
+    color: var(--white);
+    max-width: 850px;
+}
+
+.eyebrow {
+    color: #91A6C0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero-content h1 {
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.15;
+    margin-bottom: 15px;
+}
+
+.hero-content > p:not(.eyebrow) {
+    color: #E0E7F0;
+    margin-bottom: 28px;
+    font-size: 16px;
+}
+
+.light-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 49px;
+    padding: 13px 26px;
+    background: var(--white);
+    border: 2px solid var(--white);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.light-button:hover {
+    background: transparent;
+    color: var(--white);
+}
+
+/* PROJECT OVERVIEW */
+
+.project-info {
+    padding: 90px 8%;
+}
+
+.info-heading {
+    max-width: 720px;
+}
+
+.info-heading h2,
+.concept-text h2,
+.section-heading h2 {
+    color: var(--navy);
+    font-size: 36px;
+    line-height: 1.3;
+    margin-bottom: 18px;
+}
+
+.info-heading > p:last-child {
+    color: var(--muted);
+    max-width: 650px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 55px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.info-item {
+    padding: 25px 15px 25px 0;
+}
+
+.info-item span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 9px;
+}
+
+.info-item strong {
+    color: var(--navy);
+    font-size: 14px;
+}
+
+/* CONCEPT */
+
+.concept-section {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 55px;
+    padding: 85px 8%;
+    background: var(--light);
+}
+
+.concept-text h2 {
+    margin-bottom: 20px;
+}
+
+.concept-text p:not(.eyebrow) {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 17px;
+}
+
+.concept-image img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+}
+
+/* GALLERY */
+
+.gallery-section {
+    padding: 90px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading > p:last-child {
+    color: var(--muted);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.gallery-grid img:first-child {
+    grid-column: 1 / -1;
+    height: 450px;
+}
+
+.gallery-note {
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+/* CONTACT */
+
+.project-contact {
+    padding: 85px 8%;
+    text-align: center;
+    background: var(--navy);
+    color: var(--white);
+}
+
+.project-contact h2 {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.project-contact > p:not(.eyebrow) {
+    color: #D5DFEA;
+    margin-bottom: 28px;
+}
+
+.project-contact .eyebrow {
+    color: var(--steel);
+}
+
+/* FOOTER */
+
+.project-footer {
+    padding: 35px 7%;
+    background: var(--navy-dark);
+    text-align: center;
+    color: var(--steel);
+}
+
+.project-footer .brand {
+    color: var(--white);
+}
+
+.project-footer p {
+    font-size: 11px;
+    margin-top: 9px;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 22px;
+}
+
+.back-link:hover {
+    color: var(--steel);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+
+    .project-header {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 18px;
+    }
+
+    .project-hero {
+        height: 520px;
+    }
+
+    .hero-content {
+        padding: 40px 6%;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .concept-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 65px 6%;
+    }
+
+    .concept-image img {
+        height: 300px;
+    }
+
+    .project-info,
+    .gallery-section {
+        padding: 65px 6%;
+    }
+
+    .gallery-grid img:first-child {
+        height: 280px;
+    }
+
+    .gallery-grid img {
+        height: 190px;
+    }
+
+    .project-contact {
+        padding: 65px 6%;
+    }
+
+    .project-contact h2,
+    .info-heading h2,
+    .concept-text h2,
+    .section-heading h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .brand {
+        font-size: 22px;
+    }
+
+    .project-header nav a {
+        font-size: 10px;
+    }
+
+    .project-hero {
+        height: 480px;
+    }
+
+    .hero-content h1 {
+        font-size: 39px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .info-item strong {
+        font-size: 12px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid img:first-child {
+        grid-column: auto;
+        height: 230px;
+    }
+
+    .gallery-grid img {
+        height: 230px;
+    }
+}
