@@ -1,0 +1,57 @@
+
+[
+  {
+    "id": "project-01",
+    "slug": "modern-residence",
+    "name": "Modern Residence",
+    "category": "residential",
+    "description": "A contemporary residential concept exploring clean forms and modern living.",
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900",
+    "imageAlt": "Modern residence architectural concept"
+  },
+  {
+    "id": "project-02",
+    "slug": "commercial-building",
+    "name": "Commercial Building",
+    "category": "commercial",
+    "description": "A modern commercial concept combining functionality and architectural character.",
+    "image": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900",
+    "imageAlt": "Modern commercial building concept"
+  },
+  {
+    "id": "project-03",
+    "slug": "interior-design",
+    "name": "Interior Design",
+    "category": "interior",
+    "description": "Elegant interior concepts focused on comfort, materials and functionality.",
+    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900",
+    "imageAlt": "Modern interior design concept"
+  },
+  {
+    "id": "project-04",
+    "slug": "luxury-living-space",
+    "name": "Luxury Living Space",
+    "category": "residential",
+    "description": "A refined living space inspiration with a contemporary design direction.",
+    "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900",
+    "imageAlt": "Luxury living space concept"
+  },
+  {
+    "id": "project-05",
+    "slug": "modern-interior",
+    "name": "Modern Interior",
+    "category": "interior",
+    "description": "A clean and comfortable interior concept for contemporary spaces.",
+    "image": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900",
+    "imageAlt": "Modern interior concept"
+  },
+  {
+    "id": "project-06",
+    "slug": "contemporary-house",
+    "name": "Contemporary House",
+    "category": "residential",
+    "description": "A contemporary home inspiration exploring modern architectural forms.",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900",
+    "imageAlt": "Contemporary house concept"
+  }
+]
